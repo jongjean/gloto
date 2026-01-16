@@ -99,32 +99,34 @@
         .feedback-item {
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 20px;
+            padding: 12px 20px;
             background: #fafafa;
-        }
-
-        .feedback-header {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e0e0e0;
+            align-items: center;
+            gap: 20px;
         }
 
         .feedback-time {
             color: #666;
             font-size: 13px;
+            white-space: nowrap;
+            min-width: 150px;
+        }
+
+        .feedback-message {
+            color: #333;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .feedback-contact {
             color: #1a73e8;
             font-size: 13px;
-        }
-
-        .feedback-message {
-            color: #333;
-            line-height: 1.6;
-            white-space: pre-wrap;
+            white-space: nowrap;
+            min-width: 150px;
+            text-align: right;
         }
 
         .empty-state {
@@ -240,11 +242,9 @@
                     const time = new Date(feedback.timestamp).toLocaleString('ko-KR');
 
                     item.innerHTML = `
-                        <div class="feedback-header">
-                            <span class="feedback-time">${time}</span>
-                            <span class="feedback-contact">${feedback.contact || '(연락처 없음)'}</span>
-                        </div>
-                        <div class="feedback-message">${feedback.message}</div>
+                        <span class="feedback-time">${time}</span>
+                        <span class="feedback-message">${feedback.message}</span>
+                        <span class="feedback-contact">${feedback.contact || '(연락처 없음)'}</span>
                     `;
 
                     list.appendChild(item);
