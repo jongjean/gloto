@@ -153,6 +153,7 @@
                 <option value="">날짜 선택...</option>
             </select>
             <button onclick="loadFeedbacks()">조회</button>
+            <button onclick="deleteSelected()" style="background: #ea4335;">선택 삭제</button>
             <button onclick="exportCSV()" style="background: #34a853;">CSV 내보내기</button>
         </div>
 
@@ -232,7 +233,15 @@
                     return;
                 }
 
-                container.innerHTML = '<div class="feedback-list"></div>';
+                container.innerHTML = `
+                    <div class="feedback-item" style="background:#eee; font-weight:bold; border:none;">
+                        <input type="checkbox" id="check-all" onchange="toggleAll(this)">
+                        <span style="min-width:150px; text-align:center;">시간</span>
+                        <span style="flex:1; text-align:center;">내용</span>
+                        <span style="min-width:150px; text-align:center;">연락처</span>
+                    </div>
+                    <div class="feedback-list"></div>
+                `;
                 const list = container.querySelector('.feedback-list');
 
                 data.feedbacks.forEach((feedback, index) => {
@@ -242,9 +251,10 @@
                     const time = new Date(feedback.timestamp).toLocaleString('ko-KR');
 
                     item.innerHTML = `
+                        <input type="checkbox" class="fb-check" value="${index}">
                         <span class="feedback-time">${time}</span>
-                        <span class="feedback-message">${feedback.message}</span>
-                        <span class="feedback-contact">${feedback.contact || '(연락처 없음)'}</span>
+                        <span class="feedback-message" title="${feedback.message.replace(/"/g, '&quot;')}">${feedback.message}</span>
+                        <span class="feedback-contact">${feedback.contact || ''}</span>
                     `;
 
                     list.appendChild(item);
@@ -252,6 +262,42 @@
             } catch (error) {
                 console.error('Failed to load feedbacks:', error);
                 container.innerHTML = '<div class="empty-state">데이터를 불러오는데 실패했습니다.</div>';
+            }
+        }
+
+        function toggleAll(source) {
+            const checkboxes = document.querySelectorAll('.fb-check');
+            checkboxes.forEach(cb => cb.checked = source.checked);
+        }
+
+        async function deleteSelected() {
+            const date = document.getElementById('date-select').value;
+            if (!date) return alert('날짜를 먼저 선택해주세요.');
+
+            const checkboxes = document.querySelectorAll('.fb-check:checked');
+            if (checkboxes.length === 0) return alert('삭제할 항목을 선택해주세요.');
+
+            if (!confirm(`${checkboxes.length}개의 항목을 삭제하시겠습니까?`)) return;
+
+            const indices = Array.from(checkboxes).map(cb => parseInt(cb.value));
+
+            try {
+                const response = await fetch(`${API_BASE}/api/v1/feedbacks`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ date: date, indices: indices })
+                });
+
+                if (response.ok) {
+                    alert('삭제되었습니다.');
+                    loadFeedbacks();
+                } else {
+                    const err = await response.json();
+                    alert('삭제 실패: ' + err.detail);
+                }
+            } catch (error) {
+                console.error('Failed to delete:', error);
+                alert('삭제 중 오류가 발생했습니다.');
             }
         }
 
