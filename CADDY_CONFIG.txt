@@ -1,0 +1,25 @@
+# Korean Together - Caddy Configuration
+# 추가할 부분 (ucon-common 블록 안에)
+
+# Korean Together API
+handle /koto/api/* {
+    uri strip_prefix /koto
+    reverse_proxy localhost:5000
+}
+
+handle /koto/health {
+    reverse_proxy localhost:5000
+}
+
+# Korean Together AI Service  
+handle /koto-ai/* {
+    uri strip_prefix /koto-ai
+    reverse_proxy localhost:8000
+}
+
+# Korean Together Static Files (이미 있음, 수정 불필요)
+handle_path /koto/* {
+    root * /var/www/koto
+    try_files {path} /index.html
+    file_server
+}

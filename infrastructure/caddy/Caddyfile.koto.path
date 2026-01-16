@@ -1,0 +1,12 @@
+# Korean Together - Path-based routing
+# Add to existing uconai.ddns.net Caddyfile
+
+handle_path /koto/* {
+    # API 서버
+    reverse_proxy localhost:5000
+}
+
+handle_path /koto-ai/* {
+    # AI 서비스
+    reverse_proxy localhost:8000
+}

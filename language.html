@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Language Box - Global Together</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1a73e8;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .lang-card {
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 15px 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .lang-card.selected {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        /* New Flag Image Style for Studybox */
+        .flag-img {
+            width: 48px;
+            height: 36px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-save {
+            width: 100%;
+            padding: 15px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-save:disabled {
+            background: #ccc;
+        }
+
+        .back-link {
+            display: block;
+            margin-bottom: 20px;
+            color: #666;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .info-txt {
+            background: #fff3e0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="/gloto/" class="back-link">← Back to Dashboard</a>
+        <h1>🌐 Language Box</h1>
+
+        <div class="info-txt">
+            Select <b>3 languages</b> to keep in your box.
+        </div>
+
+        <div id="grid-area" class="lang-grid">
+            <!-- JS Injection -->
+        </div>
+
+        <button id="btn-save" class="btn-save" onclick="saveAndExit()">Save & Update Box</button>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script>
+        // Use Global Meta from config.js
+        const LANG_META = window.GLOTO.LANG_META;
+        // Convert to Array for ease of use, keeping priority order
+        const LANG_LIST = Object.keys(LANG_META).map(code => ({
+            code: code,
+            ...LANG_META[code]
+        }));
+
+        let selectedCodes = [];
+
+        // Init
+        window.onload = () => {
+            const saved = localStorage.getItem('gloto_target_slots');
+            if (saved) selectedCodes = JSON.parse(saved);
+            else selectedCodes = ['ko', 'vn', 'en']; // Default updated
+
+            // Filter out old invalid codes if any
+            const validCodes = LANG_LIST.map(l => l.code);
+            selectedCodes = selectedCodes.filter(c => validCodes.includes(c));
+            if (selectedCodes.length === 0) selectedCodes = ['ko', 'vn', 'en'];
+
+            renderGrid();
+        };
+
+        function renderGrid() {
+            const grid = document.getElementById('grid-area');
+            grid.innerHTML = '';
+
+            LANG_LIST.forEach(lang => {
+                const isSel = selectedCodes.includes(lang.code);
+                const div = document.createElement('div');
+                div.className = `lang-card ${isSel ? 'selected' : ''}`;
+                div.onclick = () => toggleLang(lang.code);
+
+                // Use FlagCDN Image + Native Name
+                div.innerHTML = `
+                <img src="https://flagcdn.com/w80/${lang.geo}.png" class="flag-img" alt="${lang.name}">
+                <div style="font-weight:bold;">${lang.name}</div>
+                <div style="font-size:0.85em; color:#666;">${lang.native}</div>
+            `;
+                grid.appendChild(div);
+            });
+
+            // Validation Update
+            const btn = document.getElementById('btn-save');
+            if (selectedCodes.length === 3) {
+                btn.disabled = false;
+                btn.innerText = "Save & Update Dashboard";
+            } else {
+                btn.disabled = true;
+                const remaining = 3 - selectedCodes.length;
+                if (remaining > 0) btn.innerText = `Select ${remaining} more`;
+                else btn.innerText = `Unselect ${selectedCodes.length - 3} items`;
+            }
+        }
+
+        function toggleLang(code) {
+            if (selectedCodes.includes(code)) {
+                // Remove
+                selectedCodes = selectedCodes.filter(c => c !== code);
+            } else {
+                // Add (Limit 3)
+                if (selectedCodes.length < 3) {
+                    selectedCodes.push(code);
+                } else {
+                    alert("You can only select up to 3 languages.");
+                }
+            }
+            renderGrid();
+        }
+
+        function saveAndExit() {
+            if (selectedCodes.length !== 3) return;
+            localStorage.setItem('gloto_target_slots', JSON.stringify(selectedCodes));
+            window.location.href = '/gloto/';
+        }
+    </script>
+
+</body>
+
+</html>
