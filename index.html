@@ -492,11 +492,13 @@
 
     <!-- Feedback Form -->
     <div id="feedback-form" style="max-width: 600px; margin: 20px auto 10px;">
+        <textarea id="fb-msg" rows="2" placeholder="의견을 입력해주세요..."
+            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; resize: none; font-family: inherit; color: #333; margin-bottom: 8px; box-sizing: border-box;"></textarea>
         <div style="display: flex; gap: 8px;">
-            <textarea id="fb-msg" rows="2" placeholder="의견을 입력해주세요..."
-                style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; resize: none; font-family: inherit; color: #333;"></textarea>
+            <input id="fb-contact" type="text" placeholder="이메일 또는 전화번호 (선택)"
+                style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; color: #333;">
             <button id="fb-send" onclick="sendFeedback()"
-                style="padding: 8px 16px; background: #fff; color: #333; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; cursor: pointer; align-self: stretch; white-space: nowrap;">전송</button>
+                style="padding: 8px 16px; background: #fff; color: #333; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; cursor: pointer; white-space: nowrap;">전송</button>
         </div>
     </div>
 
@@ -927,7 +929,10 @@
     <script>
         async function sendFeedback() {
             const msgBox = document.getElementById('fb-msg');
+            const contactBox = document.getElementById('fb-contact');
             const msg = msgBox.value;
+            const contact = contactBox.value;
+
             if (!msg.trim()) return alert("의견을 입력해주세요.");
 
             const btn = document.getElementById('fb-send');
@@ -940,15 +945,18 @@
                 await fetch(`${apiBase}/gloto-ai/api/v1/feedback`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: msg, contact: '' })
+                    body: JSON.stringify({ message: msg, contact: contact })
                 });
 
                 msgBox.value = '(전송완료) 의견에 감사합니다.';
                 msgBox.disabled = true;
+                contactBox.value = '';
+                contactBox.disabled = true;
 
                 setTimeout(() => {
                     msgBox.value = '';
                     msgBox.disabled = false;
+                    contactBox.disabled = false;
                     btn.disabled = false;
                     btn.innerText = originalText;
                 }, 3000);
