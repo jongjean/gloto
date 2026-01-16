@@ -487,9 +487,9 @@
     </div>
 
     <!-- Feedback Form -->
-    <div
+    <div id="feedback-form"
         style="max-width: 600px; margin: 20px auto 10px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa;">
-        <p style="margin: 0 0 8px 0; font-size: 13px; color: #666;">불편사항이나 의견을 보내주세요</p>
+        <p id="fb-label" style="margin: 0 0 8px 0; font-size: 13px; color: #666;">불편사항이나 의견을 보내주세요</p>
         <div style="display: flex; gap: 8px;">
             <textarea id="fb-msg" rows="2" placeholder="의견을 입력해주세요..."
                 style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; resize: none; font-family: inherit; color: #333;"></textarea>
@@ -646,6 +646,11 @@
 
             document.title = `${t.appName} - Global Together (v0.2)`;
             if (targetLang) renderCategories();
+
+            // Feedback Form
+            if (document.getElementById('fb-label')) document.getElementById('fb-label').innerText = t.phFeedback || "불편사항이나 의견을 보내주세요";
+            if (document.getElementById('fb-msg')) document.getElementById('fb-msg').placeholder = t.phFeedback || "의견을 입력해주세요...";
+            if (document.getElementById('fb-send')) document.getElementById('fb-send').innerText = t.btnSend || "전송";
 
 
         }
