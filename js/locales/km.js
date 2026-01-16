@@ -26,7 +26,7 @@ window.GLOTO.DATA['km'] = {
         "btnFeedback": "ផ្ញើមតិ",
         "feedbackTitle": "មតិយោបល់",
         "phFeedback": "សរសេរមតិ...",
-        "phContact": "ទំនាក់ទំនង (មិនចាំបាច់)",
+        "phContact": "ឈ្មោះ, ទំនាក់ទំនង (អ៊ីមែល, ទូរស័ព្ទ)",
         "btnSend": "ផ្ញើ",
         "btnClose": "បិទ",
         "msgSent": "បានផ្ញើ។",

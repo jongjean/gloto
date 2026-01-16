@@ -26,7 +26,7 @@ window.GLOTO.DATA['mn'] = {
         "btnFeedback": "Санал илгээх",
         "feedbackTitle": "Санал хүсэлт",
         "phFeedback": "Саналаа бичнэ үү...",
-        "phContact": "Холбоо барих (Сонголт)",
+        "phContact": "Нэр, Холбоо барих (Имэйл, Утас)",
         "btnSend": "Илгээх",
         "btnClose": "Хаах",
         "msgSent": "Илгээгдлээ.",

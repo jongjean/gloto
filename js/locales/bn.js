@@ -26,7 +26,7 @@ window.GLOTO.DATA['bn'] = {
         "btnFeedback": "মতামত পাঠান",
         "feedbackTitle": "মতামত",
         "phFeedback": "আপনার মতামত লিখুন...",
-        "phContact": "যোগাযোগ (ঐচ্ছিক)",
+        "phContact": "নাম, যোগাযোগ (ইমেল, ফোন)",
         "btnSend": "পাঠান",
         "btnClose": "বন্ধ করুন",
         "msgSent": "পাঠানো হয়েছে।",

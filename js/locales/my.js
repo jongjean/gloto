@@ -26,7 +26,7 @@ window.GLOTO.DATA['my'] = {
         "btnFeedback": "အကြံပြုချက်ပေးပို့ရန်",
         "feedbackTitle": "အကြံပြုချက်",
         "phFeedback": "အကြံပြုချက်ရေးပါ...",
-        "phContact": "ဆက်သွယ်ရန် (Optional)",
+        "phContact": "အမည်၊ ဆက်သွယ်ရန် (အီးမေးလ်၊ ဖုန်း)",
         "btnSend": "ပို့မည်",
         "btnClose": "ပိတ်မည်",
         "msgSent": "ပို့လိုက်ပြီ။",

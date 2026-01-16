@@ -26,7 +26,7 @@ window.GLOTO.DATA['ph'] = {
         "btnFeedback": "Magbigay ng Opinyon",
         "feedbackTitle": "Opinyon",
         "phFeedback": "Mag-iwan ng komento...",
-        "phContact": "Kontak (Opsyonal)",
+        "phContact": "Pangalan, Kontak (Email, Telepono)",
         "btnSend": "Ipadala",
         "btnClose": "Isara",
         "msgSent": "Naipadala na.",

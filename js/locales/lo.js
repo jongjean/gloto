@@ -26,7 +26,7 @@ window.GLOTO.DATA['lo'] = {
         "btnFeedback": "ສົ່ງຄວາມຄິດເຫັນ",
         "feedbackTitle": "ຄວາມຄິດເຫັນ",
         "phFeedback": "ຂຽນຄວາມຄິດເຫັນ...",
-        "phContact": "ຕິດຕໍ່ (ທາງເລືອກ)",
+        "phContact": "ຊື່, ຕິດຕໍ່ (ອີເມວ, ໂທລະສັບ)",
         "btnSend": "ສົ່ງ",
         "btnClose": "ປິດ",
         "msgSent": "ສົ່ງແລ້ວ.",

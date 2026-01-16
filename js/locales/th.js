@@ -26,7 +26,7 @@ window.GLOTO.DATA['th'] = {
         "btnFeedback": "ส่งความคิดเห็น",
         "feedbackTitle": "ความคิดเห็น",
         "phFeedback": "กรุณาใส่ข้อความ...",
-        "phContact": "ติดต่อ (ไม่บังคับ)",
+        "phContact": "ชื่อ, ติดต่อ (อีเมล, โทรศัพท์)",
         "btnSend": "ส่ง",
         "btnClose": "ปิด",
         "msgSent": "ส่งเรียบร้อยแล้ว",

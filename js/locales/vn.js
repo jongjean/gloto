@@ -26,7 +26,7 @@ window.GLOTO.DATA['vn'] = {
         "btnFeedback": "Gửi ý kiến",
         "feedbackTitle": "Ý kiến người dùng",
         "phFeedback": "Nhập nội dung...",
-        "phContact": "Liên hệ (Tùy chọn)",
+        "phContact": "Tên, Liên hệ (Email, SĐT)",
         "btnSend": "Gửi",
         "btnClose": "Đóng",
         "msgSent": "Đã gửi.",

@@ -26,7 +26,7 @@ window.GLOTO.DATA['ko'] = {
         "btnFeedback": "의견 보내기",
         "feedbackTitle": "사용자 의견",
         "phFeedback": "불편한 점이나 의견을 남겨주세요.",
-        "phContact": "이메일/연락처 (선택)",
+        "phContact": "이름, 연락처 (이메일, 전화번호)",
         "btnSend": "보내기",
         "btnClose": "닫기",
         "msgSent": "소중한 의견에 감사합니다. 더욱 나은 서비스로 보답하겠습니다.",

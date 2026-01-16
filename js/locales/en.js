@@ -26,7 +26,7 @@ window.GLOTO.DATA['en'] = {
         "btnFeedback": "Send Feedback",
         "feedbackTitle": "Feedback",
         "phFeedback": "Leave your comments...",
-        "phContact": "Contact (Optional)",
+        "phContact": "Name, Contact (Email, Phone)",
         "btnSend": "Send",
         "btnClose": "Close",
         "msgSent": "Sent successfully.",

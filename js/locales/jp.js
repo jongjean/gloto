@@ -26,7 +26,7 @@ window.GLOTO.DATA['jp'] = {
         "btnFeedback": "意見を送る",
         "feedbackTitle": "ユーザーの意見",
         "phFeedback": "ご意見をお聞かせください...",
-        "phContact": "連絡先 (任意)",
+        "phContact": "名前、連絡先 (メール、電話)",
         "btnSend": "送信",
         "btnClose": "閉じる",
         "msgSent": "送信しました。",

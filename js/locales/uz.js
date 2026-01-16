@@ -26,7 +26,7 @@ window.GLOTO.DATA['uz'] = {
         "btnFeedback": "Fikr yuborish",
         "feedbackTitle": "Fikr",
         "phFeedback": "Fikringizni qoldiring...",
-        "phContact": "Aloqa (Ixtiyoriy)",
+        "phContact": "Ism, Aloqa (Email, Telefon)",
         "btnSend": "Yuborish",
         "btnClose": "Yopish",
         "msgSent": "Yuborildi.",

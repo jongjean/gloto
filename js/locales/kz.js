@@ -26,7 +26,7 @@ window.GLOTO.DATA['kz'] = {
         "btnFeedback": "Пікір жіберу",
         "feedbackTitle": "Пікір",
         "phFeedback": "Пікіріңізді жазыңыз...",
-        "phContact": "Байланыс (міндетті емес)",
+        "phContact": "Аты, Байланыс (Email, Телефон)",
         "btnSend": "Жіберу",
         "btnClose": "Жабу",
         "msgSent": "Жіберілді.",

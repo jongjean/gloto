@@ -26,7 +26,7 @@ window.GLOTO.DATA['si'] = {
         "btnFeedback": "ප්‍රතිචාර යවන්න",
         "feedbackTitle": "ප්‍රතිචාර",
         "phFeedback": "ඔබේ අදහස් ලියන්න...",
-        "phContact": "සම්බන්ධතා (විකල්ප)",
+        "phContact": "නම, සම්බන්ධතා (ඊමේල්, දුරකථන)",
         "btnSend": "යවන්න",
         "btnClose": "වසන්න",
         "msgSent": "යැව්වා.",

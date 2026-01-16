@@ -26,7 +26,7 @@ window.GLOTO.DATA['cn'] = {
         "btnFeedback": "反馈",
         "feedbackTitle": "用户反馈",
         "phFeedback": "请输入您的意见...",
-        "phContact": "联系方式 (可选)",
+        "phContact": "姓名, 联系方式 (邮箱, 电话)",
         "btnSend": "发送",
         "btnClose": "关闭",
         "msgSent": "已发送。",

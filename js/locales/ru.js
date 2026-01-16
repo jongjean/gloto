@@ -26,7 +26,7 @@ window.GLOTO.DATA['ru'] = {
         "btnFeedback": "Оставить отзыв",
         "feedbackTitle": "Отзыв",
         "phFeedback": "Напишите ваш отзыв...",
-        "phContact": "Контакты (необязательно)",
+        "phContact": "Имя, Контакты (Email, Телефон)",
         "btnSend": "Отправить",
         "btnClose": "Закрыть",
         "msgSent": "Отправлено.",

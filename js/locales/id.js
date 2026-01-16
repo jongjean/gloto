@@ -26,7 +26,7 @@ window.GLOTO.DATA['id'] = {
         "btnFeedback": "Kirim Masukan",
         "feedbackTitle": "Masukan Pengguna",
         "phFeedback": "Tulis masukan Anda...",
-        "phContact": "Kontak (Opsional)",
+        "phContact": "Nama, Kontak (Email, Ponsel)",
         "btnSend": "Kirim",
         "btnClose": "Tutup",
         "msgSent": "Terkirim.",

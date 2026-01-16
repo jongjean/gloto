@@ -26,7 +26,7 @@ window.GLOTO.DATA['ne'] = {
         "btnFeedback": "सुझाव दिनुहोस्",
         "feedbackTitle": "सुझाव",
         "phFeedback": "विवरण लेख्नुहोस्...",
-        "phContact": "सम्पर्क (वैकल्पिक)",
+        "phContact": "नाम, सम्पर्क (इमेल, फोन)",
         "btnSend": "पठाउनुहोस्",
         "btnClose": "बन्द गर्नुहोस्",
         "msgSent": "पठाइयो।",
