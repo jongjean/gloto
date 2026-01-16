@@ -1,8 +1,16 @@
-# 🌐 Korean Together (KOTO)
+# 🌐 GloTo (Global Together)
 
-**AI Instructor–Driven Metaverse Korean Learning Platform**
+**AI-Powered Multi-Language Learning Web App**
 
-AI 강사가 메타버스 공간에서 학습자와 "함께 존재하며" 실시간 상호작용하는 혁신적인 한국어 학습 플랫폼
+Global Together(GloTo)는 전 세계 사용자가 자신의 모국어로 18개 언어를 쉽고 빠르게 배울 수 있는 웹 기반 AI 어학 학습 도구입니다.
+
+---
+
+## 🚀 Version 0.2.0 (New!)
+- **18개국 언어 완전 지원**: School, Travel, Hospital, Market, Restaurant, Airport 6개 카테고리의 모든 콘텐츠(60+ 문장)가 18개 언어로 번역되었습니다.
+- **향상된 TTS**: Google Neural Voice 기술을 적용하여 훨씬 자연스러운 AI 음성을 제공합니다.
+- **Smart Fallback**: 기계어 번역에 의존하지 않고 정제된 번역 데이터를 사용하며, 지원되지 않는 조합에 대한 안전한 Fallback 로직이 적용되었습니다.
+- **UI/UX 개선**: 모든 언어에서 깨지지 않는 반응형 UI 및 모바일 최적화가 이루어졌습니다.
 
 ---
 
@@ -253,6 +261,6 @@ Public URL: https://uconcreative.ddns.net/koto
 
 ---
 
-**Status**: 🔵 Planning Phase  
-**Version**: 0.1.0-alpha  
-**Last Updated**: 2026-01-15
+**Status**: 🟢 Beta Release  
+**Version**: 0.2.0  
+**Last Updated**: 2026-01-16
