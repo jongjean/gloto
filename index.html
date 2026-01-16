@@ -932,8 +932,8 @@
             btn.innerText = "...";
 
             try {
-                const apiBase = window.location.origin;
-                await fetch(`${apiBase}/gloto-ai/api/v1/feedback`, {
+                const apiBase = 'https://koto-ai.uconcreative.ddns.net';
+                await fetch(`${apiBase}/api/v1/feedback`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: msg, contact: '' })
