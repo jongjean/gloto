@@ -700,13 +700,17 @@
             const grid = document.getElementById('cat-grid');
             grid.innerHTML = '';
 
-            // Get Category Names from Native Lang UI Data
-            const ui = (window.GLOTO.DATA && window.GLOTO.DATA[nativeLang]) ? window.GLOTO.DATA[nativeLang].ui : {};
+            // Get Category Names from Both Languages
+            const nativeUI = (window.GLOTO.DATA && window.GLOTO.DATA[nativeLang]) ? window.GLOTO.DATA[nativeLang].ui : {};
+            const targetUI = (window.GLOTO.DATA && window.GLOTO.DATA[targetLang]) ? window.GLOTO.DATA[targetLang].ui : {};
 
             Object.keys(CATEGORIES).forEach(cat => {
                 const meta = CATEGORIES[cat];
-                // ui['cat_School'] etc.
-                const label = ui[`cat_${cat}`] || meta.default || cat;
+
+                // Target language name (위)
+                const targetLabel = targetUI[`cat_${cat}`] || meta.default || cat;
+                // Native language name (아래)
+                const nativeLabel = nativeUI[`cat_${cat}`] || meta.default || cat;
 
                 const btn = document.createElement('div');
                 btn.className = 'cat-card';
@@ -717,7 +721,11 @@
                     btn.style.pointerEvents = 'none';
                 }
 
-                btn.innerHTML = `<div class="cat-icon">${meta.icon}</div><div class="cat-label">${label}</div>`;
+                btn.innerHTML = `
+                    <div class="cat-icon">${meta.icon}</div>
+                    <div class="cat-label" style="font-weight: bold;">${targetLabel}</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 2px;">${nativeLabel}</div>
+                `;
                 grid.appendChild(btn);
             });
         }
