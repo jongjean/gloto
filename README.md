@@ -244,7 +244,7 @@ chore: 빌드/설정 변경
 
 ## 📄 License
 
-Copyright © 2026 UCON Creative Co., Ltd. All rights reserved.
+Copyright © 2025 UCON Creative Co., Ltd. All rights reserved.
 
 ---
 
