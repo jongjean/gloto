@@ -491,12 +491,12 @@
     </div>
 
     <!-- Feedback Form -->
-    <div id="feedback-form" style="max-width: 600px; margin: 20px auto 10px;">
-        <textarea id="fb-msg" rows="2" placeholder="의견을 입력해주세요..."
-            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; resize: none; font-family: inherit; color: #333; margin-bottom: 8px; box-sizing: border-box;"></textarea>
-        <div style="display: flex; gap: 8px;">
-            <input id="fb-contact" type="text" placeholder="이메일 또는 전화번호 (선택)"
-                style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; color: #333;">
+    <div id="feedback-form" style="max-width: 600px; margin: 10px auto;">
+        <div style="display: flex; gap: 6px;">
+            <input id="fb-msg" type="text" placeholder="의견을 입력해주세요..."
+                style="flex: 2; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; color: #333;">
+            <input id="fb-contact" type="text" placeholder="연락처 (선택)"
+                style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; color: #333;">
             <button id="fb-send" onclick="sendFeedback()"
                 style="padding: 8px 16px; background: #fff; color: #333; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; cursor: pointer; white-space: nowrap;">전송</button>
         </div>
